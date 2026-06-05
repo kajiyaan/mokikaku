@@ -27,6 +27,16 @@ document.querySelectorAll('.nav-links a').forEach(link => {
   });
 });
 
+// エントリータブ切り替え
+document.querySelectorAll('.entry-tab').forEach(tab => {
+  tab.addEventListener('click', () => {
+    document.querySelectorAll('.entry-tab').forEach(t => t.classList.remove('active'));
+    document.querySelectorAll('.entry-form-wrap').forEach(f => f.classList.remove('active'));
+    tab.classList.add('active');
+    document.getElementById(tab.dataset.target).classList.add('active');
+  });
+});
+
 // スクロール時にヘッダーの影を強調
 const header = document.querySelector('header');
 window.addEventListener('scroll', () => {

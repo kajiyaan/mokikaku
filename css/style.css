@@ -449,6 +449,79 @@ section {
 }
 
 /* ========================================
+   サービスタブ
+   ======================================== */
+
+.service-tabs {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  margin-bottom: 36px;
+  flex-wrap: wrap;
+}
+
+.service-tab {
+  padding: 14px 32px;
+  border-radius: 32px;
+  border: 2px solid var(--accent);
+  background: var(--white);
+  color: var(--accent);
+  font-size: 1rem;
+  font-weight: 700;
+  font-family: inherit;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.service-tab:last-child {
+  border-color: var(--primary);
+  color: var(--primary);
+}
+
+.service-tab.active,
+.service-tab:hover {
+  color: var(--white);
+}
+
+.service-tab:first-child.active,
+.service-tab:first-child:hover {
+  background: var(--accent);
+}
+
+.service-tab:last-child.active,
+.service-tab:last-child:hover {
+  background: var(--primary);
+}
+
+.service-panel {
+  display: none;
+}
+
+.service-panel.active {
+  display: block;
+}
+
+.service-panel-lead {
+  border-radius: var(--radius);
+  padding: 20px 28px;
+  margin-bottom: 32px;
+  font-size: 0.95rem;
+  line-height: 1.8;
+}
+
+.company-lead {
+  background: #edf4fc;
+  border-left: 4px solid var(--accent);
+  color: #3a5a7a;
+}
+
+.person-lead {
+  background: #eef7f2;
+  border-left: 4px solid var(--primary);
+  color: #2a5a3a;
+}
+
+/* ========================================
    ご利用の流れセクション
    ======================================== */
 

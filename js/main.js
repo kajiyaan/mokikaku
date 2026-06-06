@@ -27,6 +27,16 @@ document.querySelectorAll('.nav-links a').forEach(link => {
   });
 });
 
+// サービスタブ切り替え
+document.querySelectorAll('.service-tab').forEach(tab => {
+  tab.addEventListener('click', () => {
+    document.querySelectorAll('.service-tab').forEach(t => t.classList.remove('active'));
+    document.querySelectorAll('.service-panel').forEach(p => p.classList.remove('active'));
+    tab.classList.add('active');
+    document.getElementById(tab.dataset.service).classList.add('active');
+  });
+});
+
 // フロータブ切り替え
 document.querySelectorAll('.flow-tab').forEach(tab => {
   tab.addEventListener('click', () => {

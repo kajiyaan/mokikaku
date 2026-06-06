@@ -72,8 +72,7 @@
       <span class="section-label">Service</span>
       <h2 class="section-title">サービス内容</h2>
       <p class="section-desc">
-        企業様から委託を受け、障害者の就労施設の運営と現場管理をまるごとお引き受けします。
-        雇用主は企業様のまま、現場運営はエムオー企画が担います。
+        企業様にも、障害のある方にも、それぞれに必要なサポートをご提供します。
       </p>
 
       <div class="service-model">
@@ -106,38 +105,76 @@
         </div>
       </div>
 
-      <div class="service-grid">
-        <div class="service-card">
-          <span class="service-icon">🏠</span>
-          <h3>就労施設の提供・維持管理</h3>
-          <p>
-            障害のある方が実際に働く場所（就労施設）を提供し、日常的な維持・管理を行います。
-            安全で働きやすい環境を整え、運営全般をお任せいただけます。
-          </p>
+      <!-- サービスタブ -->
+      <div class="service-tabs">
+        <button class="service-tab active" data-service="service-company">🏢 企業様向けサービス</button>
+        <button class="service-tab" data-service="service-person">🙋 障害のある方向けサービス</button>
+      </div>
+
+      <!-- 企業向けサービス -->
+      <div class="service-panel active" id="service-company">
+        <div class="service-panel-lead company-lead">
+          <p>障害者雇用に取り組む企業様へ。就労施設の提供から雇用支援・業務サポートまで、現場運営をまるごとお引き受けします。企業様は雇用主としての権限を保持したまま、煩雑な現場管理をエムオー企画に委託いただけます。</p>
         </div>
-        <div class="service-card">
-          <span class="service-icon">📋</span>
-          <h3>業務指導・就労管理</h3>
-          <p>
-            企業様からの委託の範囲内で、対象者への業務指導と日常的な就労管理を行います。
-            一人ひとりの状況に合わせた丁寧な関わりで、安定した就労を支えます。
-          </p>
+        <div class="service-grid">
+          <div class="service-card">
+            <span class="service-icon">🏠</span>
+            <h3>職場環境の提供</h3>
+            <p>
+              障害のある方が実際に働く就労施設を提供・維持管理します。
+              安全で働きやすい環境を整備し、施設の運営全般をお任せいただけます。
+              企業様が別途ご用意いただく必要はありません。
+            </p>
+          </div>
+          <div class="service-card">
+            <span class="service-icon">🤝</span>
+            <h3>企業に代わっての雇用支援</h3>
+            <p>
+              企業様の委託を受け、対象者の採用から就労開始までの雇用サポートを代行します。
+              書類準備・面談補助・就労準備など、企業様の負担を大幅に軽減します。
+            </p>
+          </div>
+          <div class="service-card">
+            <span class="service-icon">📋</span>
+            <h3>業務サポート・日常管理</h3>
+            <p>
+              対象者への業務指導・出欠管理・体調把握を日々行い、月次報告書として企業様にご提出します。
+              現場の状況を可視化し、企業様が安心して雇用を続けられる体制をつくります。
+            </p>
+          </div>
         </div>
-        <div class="service-card">
-          <span class="service-icon">📊</span>
-          <h3>出欠・体調管理と月次報告</h3>
-          <p>
-            対象者の出欠状況・体調・就労状況を日々把握し、毎月の報告書として企業様にご提出します。
-            現場の見えにくい部分を可視化し、企業様が安心できる体制をつくります。
-          </p>
+      </div>
+
+      <!-- 障害者向けサービス -->
+      <div class="service-panel" id="service-person">
+        <div class="service-panel-lead person-lead">
+          <p>働くことをお考えの障害のある方へ。安心して雇用されるための企業紹介から、働く場所の提供、日々の就労サポートまで、エムオー企画がしっかりと寄り添います。</p>
         </div>
-        <div class="service-card">
-          <span class="service-icon">🔧</span>
-          <h3>備品・材料等の管理</h3>
-          <p>
-            就労に必要な備品・消耗品・材料などの管理・調達を行います。
-            現場で必要なものが常に揃った状態を維持し、業務がスムーズに進む環境を整えます。
-          </p>
+        <div class="service-grid">
+          <div class="service-card">
+            <span class="service-icon">🏢</span>
+            <h3>企業のご紹介</h3>
+            <p>
+              障害のある方を受け入れる準備が整った企業様をご紹介します。
+              あなたの障害特性・希望・ペースに合った企業を一緒に探し、安心して雇用されるまでサポートします。
+            </p>
+          </div>
+          <div class="service-card">
+            <span class="service-icon">🏠</span>
+            <h3>職場環境の提供</h3>
+            <p>
+              エムオー企画が運営する就労施設で働いていただけます。
+              バリアフリー対応・サポートスタッフ常駐など、障害のある方が無理なく働き続けられる環境を整えています。
+            </p>
+          </div>
+          <div class="service-card">
+            <span class="service-icon">🌱</span>
+            <h3>就労支援・日常サポート</h3>
+            <p>
+              就労中も担当スタッフが毎日サポートします。業務のわからないこと、体調のこと、職場での悩みなど、
+              気軽に相談できる環境で、長く安心して働き続けていただけます。
+            </p>
+          </div>
         </div>
       </div>
     </div>

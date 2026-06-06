@@ -383,6 +383,192 @@ section {
 }
 
 /* ========================================
+   サービスモデル図
+   ======================================== */
+
+.service-model {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 64px;
+  flex-wrap: wrap;
+}
+
+.model-box {
+  background: var(--white);
+  border-radius: var(--radius);
+  padding: 24px 28px;
+  text-align: center;
+  box-shadow: var(--shadow);
+  min-width: 160px;
+  flex: 0 0 auto;
+}
+
+.company-box { border-top: 4px solid var(--accent); }
+.mo-box      { border-top: 4px solid var(--primary); }
+.person-box  { border-top: 4px solid var(--warm); }
+
+.model-icon {
+  font-size: 2rem;
+  display: block;
+  margin-bottom: 8px;
+}
+
+.model-label {
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 6px;
+}
+
+.model-desc {
+  font-size: 0.78rem;
+  color: var(--text-light);
+  line-height: 1.6;
+}
+
+.model-arrow {
+  text-align: center;
+  color: var(--text-light);
+  font-size: 0.75rem;
+  flex: 0 0 auto;
+}
+
+.arrow-line {
+  font-size: 1.6rem;
+  color: var(--primary);
+  line-height: 1;
+  margin: 2px 0;
+}
+
+.arrow-label {
+  font-size: 0.72rem;
+  color: var(--text-light);
+  white-space: nowrap;
+}
+
+/* ========================================
+   ご利用の流れセクション
+   ======================================== */
+
+#flow {
+  background: var(--white);
+}
+
+.flow-tabs {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  margin-bottom: 40px;
+  flex-wrap: wrap;
+}
+
+.flow-tab {
+  padding: 12px 28px;
+  border-radius: 32px;
+  border: 2px solid var(--primary);
+  background: var(--white);
+  color: var(--primary);
+  font-size: 0.95rem;
+  font-weight: 700;
+  font-family: inherit;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.flow-tab:hover,
+.flow-tab.active {
+  background: var(--primary);
+  color: var(--white);
+}
+
+.flow-tab:last-child {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+.flow-tab:last-child:hover,
+.flow-tab:last-child.active {
+  background: var(--accent);
+  color: var(--white);
+  border-color: var(--accent);
+}
+
+.flow-wrap {
+  display: none;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.flow-wrap.active {
+  display: block;
+}
+
+.flow-steps {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.flow-step {
+  display: flex;
+  gap: 24px;
+  align-items: flex-start;
+  position: relative;
+  padding-bottom: 32px;
+}
+
+.flow-step:last-child {
+  padding-bottom: 0;
+}
+
+.flow-step:not(:last-child)::before {
+  content: '';
+  position: absolute;
+  left: 19px;
+  top: 40px;
+  bottom: 0;
+  width: 2px;
+  background: linear-gradient(to bottom, var(--primary-light), transparent);
+}
+
+.step-num {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+  font-weight: 800;
+  color: var(--white);
+  flex-shrink: 0;
+  position: relative;
+  z-index: 1;
+}
+
+.company-num { background: var(--accent); }
+.person-num  { background: var(--primary); }
+
+.step-body {
+  padding-top: 6px;
+}
+
+.step-body h4 {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 6px;
+}
+
+.step-body p {
+  font-size: 0.9rem;
+  color: var(--text-light);
+  line-height: 1.75;
+}
+
+/* ========================================
    エントリーセクション
    ======================================== */
 

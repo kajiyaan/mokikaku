@@ -1,68 +1,221 @@
-// ハンバーガーメニュー
-const hamburger = document.querySelector('.hamburger');
-const navLinks = document.querySelector('.nav-links');
+'use strict';
 
-hamburger.addEventListener('click', () => {
-  navLinks.classList.toggle('open');
-  const spans = hamburger.querySelectorAll('span');
-  if (navLinks.classList.contains('open')) {
-    spans[0].style.transform = 'rotate(45deg) translate(5px, 5px)';
-    spans[1].style.opacity = '0';
-    spans[2].style.transform = 'rotate(-45deg) translate(5px, -5px)';
-  } else {
-    spans[0].style.transform = '';
-    spans[1].style.opacity = '';
-    spans[2].style.transform = '';
-  }
-});
+/* ==========================================================================
+   Utility
+   ========================================================================== */
+const qs  = (sel, ctx = document) => ctx.querySelector(sel);
+const qsa = (sel, ctx = document) => [...ctx.querySelectorAll(sel)];
 
-// ナビリンクをクリックしたらメニューを閉じる
-document.querySelectorAll('.nav-links a').forEach(link => {
-  link.addEventListener('click', () => {
-    navLinks.classList.remove('open');
-    const spans = hamburger.querySelectorAll('span');
-    spans[0].style.transform = '';
-    spans[1].style.opacity = '';
-    spans[2].style.transform = '';
+/* ==========================================================================
+   Header: scroll shadow + hamburger
+   ========================================================================== */
+(function initHeader() {
+  const header     = qs('#header');
+  const hamburger  = qs('#hamburger');
+  const nav        = qs('#headerNav');
+  const navLinks   = qsa('.header__nav-link');
+
+  // Scroll shadow
+  const onScroll = () => {
+    header.classList.toggle('is-scrolled', window.scrollY > 10);
+  };
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+
+  // Hamburger toggle
+  hamburger.addEventListener('click', () => {
+    const isOpen = nav.classList.toggle('is-open');
+    hamburger.classList.toggle('is-open', isOpen);
+    hamburger.setAttribute('aria-expanded', String(isOpen));
+    document.body.style.overflow = isOpen ? 'hidden' : '';
   });
-});
 
-// サービスタブ切り替え
-document.querySelectorAll('.service-tab').forEach(tab => {
-  tab.addEventListener('click', () => {
-    document.querySelectorAll('.service-tab').forEach(t => t.classList.remove('active'));
-    document.querySelectorAll('.service-panel').forEach(p => p.classList.remove('active'));
-    tab.classList.add('active');
-    document.getElementById(tab.dataset.service).classList.add('active');
+  // Close nav when a link is clicked
+  navLinks.forEach(link => {
+    link.addEventListener('click', () => {
+      nav.classList.remove('is-open');
+      hamburger.classList.remove('is-open');
+      hamburger.setAttribute('aria-expanded', 'false');
+      document.body.style.overflow = '';
+    });
   });
-});
 
-// フロータブ切り替え
-document.querySelectorAll('.flow-tab').forEach(tab => {
-  tab.addEventListener('click', () => {
-    document.querySelectorAll('.flow-tab').forEach(t => t.classList.remove('active'));
-    document.querySelectorAll('.flow-wrap').forEach(f => f.classList.remove('active'));
-    tab.classList.add('active');
-    document.getElementById(tab.dataset.flow).classList.add('active');
+  // Close nav when clicking outside
+  document.addEventListener('click', e => {
+    if (nav.classList.contains('is-open') &&
+        !nav.contains(e.target) &&
+        !hamburger.contains(e.target)) {
+      nav.classList.remove('is-open');
+      hamburger.classList.remove('is-open');
+      hamburger.setAttribute('aria-expanded', 'false');
+      document.body.style.overflow = '';
+    }
   });
-});
+})();
 
-// エントリータブ切り替え
-document.querySelectorAll('.entry-tab').forEach(tab => {
-  tab.addEventListener('click', () => {
-    document.querySelectorAll('.entry-tab').forEach(t => t.classList.remove('active'));
-    document.querySelectorAll('.entry-form-wrap').forEach(f => f.classList.remove('active'));
-    tab.classList.add('active');
-    document.getElementById(tab.dataset.target).classList.add('active');
+/* ==========================================================================
+   Scroll-in animations (Intersection Observer)
+   ========================================================================== */
+(function initFadeIn() {
+  const targets = qsa('.fade-in');
+  if (!targets.length) return;
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('is-visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+
+  targets.forEach(el => observer.observe(el));
+})();
+
+/* ==========================================================================
+   Tabs (shared — service / flow / entry)
+   ========================================================================== */
+(function initTabs() {
+  qsa('.tab-btns').forEach(group => {
+    const btns = qsa('.tab-btn', group);
+
+    btns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const targetId = btn.dataset.tab;
+        const tabGroup = btn.closest('.tab-group');
+
+        // Update buttons
+        qsa('.tab-btn', tabGroup).forEach(b => b.classList.remove('is-active'));
+        btn.classList.add('is-active');
+
+        // Update content
+        qsa('.tab-content', tabGroup).forEach(panel => {
+          panel.classList.remove('is-active');
+        });
+        const target = qs(`#${targetId}`);
+        if (target) target.classList.add('is-active');
+      });
+    });
   });
-});
+})();
 
-// スクロール時にヘッダーの影を強調
-const header = document.querySelector('header');
-window.addEventListener('scroll', () => {
-  if (window.scrollY > 20) {
-    header.style.boxShadow = '0 2px 20px rgba(0,0,0,0.13)';
-  } else {
-    header.style.boxShadow = '0 2px 12px rgba(0,0,0,0.08)';
-  }
-});
+/* ==========================================================================
+   FAQ Accordion
+   ========================================================================== */
+(function initFaq() {
+  const items = qsa('.faq__item');
+
+  items.forEach(item => {
+    const btn    = qs('.faq__question', item);
+    const answer = qs('.faq__answer', item);
+
+    btn.addEventListener('click', () => {
+      const isOpen = answer.classList.contains('is-open');
+
+      // Close all others
+      items.forEach(other => {
+        if (other !== item) {
+          qs('.faq__question', other).setAttribute('aria-expanded', 'false');
+          qs('.faq__answer', other).classList.remove('is-open');
+        }
+      });
+
+      // Toggle this one
+      btn.setAttribute('aria-expanded', String(!isOpen));
+      answer.classList.toggle('is-open', !isOpen);
+    });
+  });
+})();
+
+/* ==========================================================================
+   Back to Top button
+   ========================================================================== */
+(function initBackToTop() {
+  const btn = qs('#backToTop');
+  if (!btn) return;
+
+  const onScroll = () => {
+    btn.classList.toggle('is-visible', window.scrollY > 400);
+  };
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+})();
+
+/* ==========================================================================
+   Active nav highlight on scroll (simple section spy)
+   ========================================================================== */
+(function initNavSpy() {
+  const sections = qsa('section[id]');
+  const navLinks = qsa('.header__nav-link');
+  if (!sections.length || !navLinks.length) return;
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (!entry.isIntersecting) return;
+      const id = entry.target.id;
+      navLinks.forEach(link => {
+        const href = link.getAttribute('href');
+        link.style.color = href === `#${id}` ? 'var(--primary)' : '';
+      });
+    });
+  }, { rootMargin: `-${68}px 0px -60% 0px`, threshold: 0 });
+
+  sections.forEach(sec => observer.observe(sec));
+})();
+
+/* ==========================================================================
+   Form: basic client-side validation & submission feedback
+   ========================================================================== */
+(function initForms() {
+  qsa('form.form').forEach(form => {
+    form.addEventListener('submit', e => {
+      e.preventDefault();
+
+      // Simple required-field check
+      let valid = true;
+      const requiredFields = qsa('[required]', form);
+
+      requiredFields.forEach(field => {
+        field.style.borderColor = '';
+        if (!field.value.trim() || (field.type === 'checkbox' && !field.checked)) {
+          field.style.borderColor = '#e74c3c';
+          valid = false;
+        }
+      });
+
+      if (!valid) {
+        const firstInvalid = qs('[required]:not(:valid)', form) || qsa('[required]', form).find(f => !f.value.trim() || (f.type === 'checkbox' && !f.checked));
+        if (firstInvalid) firstInvalid.focus();
+        return;
+      }
+
+      // Show success message (replace form content)
+      const successHtml = `
+        <div style="text-align:center;padding:3rem 1rem;">
+          <div style="font-size:3rem;margin-bottom:1rem;">✅</div>
+          <h3 style="font-size:1.3rem;font-weight:800;margin-bottom:.75rem;color:var(--text);">送信が完了しました</h3>
+          <p style="color:var(--text-mid);line-height:1.8;">お問い合わせありがとうございます。<br>担当者より2営業日以内にご連絡いたします。</p>
+        </div>
+      `;
+      form.innerHTML = successHtml;
+    });
+  });
+})();
+
+/* ==========================================================================
+   Smooth scroll polyfill for older Safari
+   ========================================================================== */
+(function initSmoothScroll() {
+  qsa('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', e => {
+      const href = anchor.getAttribute('href');
+      if (href === '#') return;
+      const target = qs(href);
+      if (!target) return;
+      e.preventDefault();
+      const headerH = parseInt(getComputedStyle(document.documentElement).getPropertyValue('--header-h')) || 68;
+      const top = target.getBoundingClientRect().top + window.scrollY - headerH;
+      window.scrollTo({ top, behavior: 'smooth' });
+    });
+  });
+})();

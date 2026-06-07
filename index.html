@@ -12,18 +12,20 @@
   <!-- ========== HEADER ========== -->
   <header class="header" id="header">
     <div class="header__inner container">
-      <a href="#top" class="header__logo">
+      <a href="index.html" class="header__logo">
         <span class="header__logo-mark">MO</span>
         <span class="header__logo-text">エムオー企画</span>
       </a>
       <nav class="header__nav" id="headerNav">
         <ul class="header__nav-list">
-          <li><a href="#service" class="header__nav-link">サービス</a></li>
-          <li><a href="#flow" class="header__nav-link">ご利用の流れ</a></li>
-          <li><a href="#faq" class="header__nav-link">よくある質問</a></li>
-          <li><a href="#company" class="header__nav-link">会社概要</a></li>
+          <li><a href="index.html" class="header__nav-link is-current">トップ</a></li>
+          <li><a href="service-company.html" class="header__nav-link">企業様向けサービス</a></li>
+          <li><a href="service-worker.html" class="header__nav-link">障害をお持ちの方へ</a></li>
+          <li><a href="flow.html" class="header__nav-link">ご利用の流れ</a></li>
+          <li><a href="faq.html" class="header__nav-link">よくある質問</a></li>
+          <li><a href="company.html" class="header__nav-link">会社概要</a></li>
         </ul>
-        <a href="#entry" class="btn btn--primary header__cta">お問い合わせ</a>
+        <a href="entry.html" class="btn btn--primary header__cta">エントリー</a>
       </nav>
       <button class="header__hamburger" id="hamburger" aria-label="メニューを開く" aria-expanded="false">
         <span></span>
@@ -43,7 +45,7 @@
         <p class="hero__sub">企業と障害者をつなぎ、<br>安心して働ける環境をつくります。</p>
       </div>
       <div class="hero__cta-cards fade-in fade-in--delay">
-        <a href="#entry" class="hero__cta-card hero__cta-card--company">
+        <a href="service-company.html" class="hero__cta-card hero__cta-card--company">
           <div class="hero__cta-card-icon">🏢</div>
           <div class="hero__cta-card-content">
             <p class="hero__cta-card-label">採用・委託をお考えの</p>
@@ -52,7 +54,7 @@
           </div>
           <span class="hero__cta-card-arrow">→</span>
         </a>
-        <a href="#entry" class="hero__cta-card hero__cta-card--worker">
+        <a href="service-worker.html" class="hero__cta-card hero__cta-card--worker">
           <div class="hero__cta-card-icon">🌱</div>
           <div class="hero__cta-card-content">
             <p class="hero__cta-card-label">就職をお考えの</p>
@@ -125,533 +127,51 @@
     </div>
   </section>
 
-  <!-- ========== SERVICE ========== -->
-  <section class="service section" id="service">
+  <!-- ========== SERVICE MENU ========== -->
+  <section class="service-menu section">
     <div class="container">
       <div class="section-header fade-in">
         <p class="section-label">SERVICE</p>
         <h2 class="section-title">サービス内容</h2>
         <p class="section-desc">企業様・障害をお持ちの方それぞれに向けた<br>充実したサービスをご用意しています。</p>
       </div>
-      <div class="tab-group fade-in">
-        <div class="tab-btns">
-          <button class="tab-btn tab-btn--company is-active" data-tab="service-company">🏢 企業様向け</button>
-          <button class="tab-btn tab-btn--worker" data-tab="service-worker">🌱 障害をお持ちの方向け</button>
-        </div>
-        <div class="tab-content is-active" id="service-company">
-          <div class="service__cards">
-            <div class="service__card fade-in">
-              <div class="service__card-num">01</div>
-              <div class="service__card-icon">🏢</div>
-              <h3 class="service__card-title">職場環境の提供</h3>
-              <p class="service__card-desc">障害者が安心して働けるバリアフリーな就労施設をご用意します。設備の整備・維持管理も含めて対応し、企業側の初期投資・管理負担を大幅に軽減します。</p>
-              <ul class="service__card-list">
-                <li>バリアフリー施設の提供</li>
-                <li>設備・備品の管理</li>
-                <li>安全な作業環境の整備</li>
-              </ul>
-            </div>
-            <div class="service__card fade-in">
-              <div class="service__card-num">02</div>
-              <div class="service__card-icon">📑</div>
-              <h3 class="service__card-title">雇用支援の代行</h3>
-              <p class="service__card-desc">障害者雇用に必要な各種手続き・書類作成のサポートから、行政との調整まで対応。法定雇用率の達成・維持を継続的にサポートします。</p>
-              <ul class="service__card-list">
-                <li>法定雇用率の達成サポート</li>
-                <li>各種行政手続きの支援</li>
-                <li>採用後のフォローアップ</li>
-              </ul>
-            </div>
-            <div class="service__card fade-in">
-              <div class="service__card-num">03</div>
-              <div class="service__card-icon">🤝</div>
-              <h3 class="service__card-title">業務サポート・日常管理</h3>
-              <p class="service__card-desc">日々の業務指導から体調管理、トラブル対応まで、現場スタッフが丁寧にサポート。毎月の状況報告で企業側も安心して任せていただけます。</p>
-              <ul class="service__card-list">
-                <li>業務指導・スキルアップ支援</li>
-                <li>日常の健康・体調管理</li>
-                <li>月次レポートの提出</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-        <div class="tab-content" id="service-worker">
-          <div class="service__cards">
-            <div class="service__card fade-in">
-              <div class="service__card-num">01</div>
-              <div class="service__card-icon">🔍</div>
-              <h3 class="service__card-title">企業のご紹介・マッチング</h3>
-              <p class="service__card-desc">あなたの障害特性・得意なこと・希望する働き方をヒアリングし、最適な企業・職場をご紹介します。無理なく続けられる仕事を一緒に探しましょう。</p>
-              <ul class="service__card-list">
-                <li>個別ヒアリング・アセスメント</li>
-                <li>希望に沿った企業マッチング</li>
-                <li>職場見学・体験の調整</li>
-              </ul>
-            </div>
-            <div class="service__card fade-in">
-              <div class="service__card-num">02</div>
-              <div class="service__card-icon">🌿</div>
-              <h3 class="service__card-title">安心できる職場環境</h3>
-              <p class="service__card-desc">障害特性に配慮したバリアフリーな職場環境を提供。専任スタッフが常駐し、困ったことがあればすぐに相談できる体制を整えています。</p>
-              <ul class="service__card-list">
-                <li>バリアフリーな就労施設</li>
-                <li>専任スタッフによる常駐サポート</li>
-                <li>合理的配慮の徹底</li>
-              </ul>
-            </div>
-            <div class="service__card fade-in">
-              <div class="service__card-num">03</div>
-              <div class="service__card-icon">💪</div>
-              <h3 class="service__card-title">就労支援・日常サポート</h3>
-              <p class="service__card-desc">業務スキルの向上から、生活リズムの安定、職場でのコミュニケーションまで、長く安心して働き続けるための総合的なサポートを提供します。</p>
-              <ul class="service__card-list">
-                <li>業務スキルアップ支援</li>
-                <li>生活・体調管理のサポート</li>
-                <li>定期面談・相談窓口</li>
-              </ul>
-            </div>
-          </div>
-        </div>
+      <div class="service-menu__cards fade-in">
+        <a href="service-company.html" class="service-menu__card service-menu__card--company">
+          <div class="service-menu__card-icon">🏢</div>
+          <h3 class="service-menu__card-title">企業様向けサービス</h3>
+          <p class="service-menu__card-desc">障害者雇用の現場管理・施設運営を代行。法定雇用率の達成から日常の業務指導まで、まるごとお任せください。</p>
+          <ul class="service-menu__card-list">
+            <li>職場環境の提供・運営</li>
+            <li>雇用支援の代行</li>
+            <li>業務サポート・月次報告</li>
+          </ul>
+          <span class="service-menu__card-btn">詳しく見る →</span>
+        </a>
+        <a href="service-worker.html" class="service-menu__card service-menu__card--worker">
+          <div class="service-menu__card-icon">🌱</div>
+          <h3 class="service-menu__card-title">障害をお持ちの方へのサービス</h3>
+          <p class="service-menu__card-desc">あなたに合った職場を一緒に探します。就職から就労後のフォローまで、専任スタッフが寄り添いサポートします。</p>
+          <ul class="service-menu__card-list">
+            <li>企業のご紹介・マッチング</li>
+            <li>安心できる職場環境</li>
+            <li>就労支援・継続サポート</li>
+          </ul>
+          <span class="service-menu__card-btn">詳しく見る →</span>
+        </a>
       </div>
     </div>
   </section>
 
-  <!-- ========== FLOW ========== -->
-  <section class="flow section" id="flow">
+  <!-- ========== CTA ========== -->
+  <section class="cta-banner section">
     <div class="container">
-      <div class="section-header fade-in">
-        <p class="section-label">FLOW</p>
-        <h2 class="section-title">ご利用の流れ</h2>
-        <p class="section-desc">シンプルなステップで、すぐにご利用を開始できます。</p>
-      </div>
-      <div class="tab-group fade-in">
-        <div class="tab-btns">
-          <button class="tab-btn tab-btn--company is-active" data-tab="flow-company">🏢 企業様向け</button>
-          <button class="tab-btn tab-btn--worker" data-tab="flow-worker">🌱 障害をお持ちの方向け</button>
+      <div class="cta-banner__inner fade-in">
+        <div class="cta-banner__text">
+          <h2 class="cta-banner__title">まずはお気軽にご相談ください</h2>
+          <p class="cta-banner__desc">企業様のご担当者様も、就職をお考えの方も、<br>どんな小さなご質問でも歓迎します。</p>
         </div>
-        <div class="tab-content is-active" id="flow-company">
-          <div class="flow__steps">
-            <div class="flow__step fade-in">
-              <div class="flow__step-num">STEP 1</div>
-              <div class="flow__step-icon">📞</div>
-              <h3 class="flow__step-title">お問い合わせ</h3>
-              <p class="flow__step-desc">まずはお電話またはWebフォームよりお気軽にご連絡ください。担当者より折り返しご連絡いたします。</p>
-            </div>
-            <div class="flow__step-arrow" aria-hidden="true">→</div>
-            <div class="flow__step fade-in">
-              <div class="flow__step-num">STEP 2</div>
-              <div class="flow__step-icon">💬</div>
-              <h3 class="flow__step-title">ヒアリング・ご提案</h3>
-              <p class="flow__step-desc">貴社の状況・ご要望を詳しくお伺いし、最適なサービス内容をご提案します。</p>
-            </div>
-            <div class="flow__step-arrow" aria-hidden="true">→</div>
-            <div class="flow__step fade-in">
-              <div class="flow__step-num">STEP 3</div>
-              <div class="flow__step-icon">📝</div>
-              <h3 class="flow__step-title">契約・準備</h3>
-              <p class="flow__step-desc">サービス内容・費用にご納得いただいたうえで契約を締結。施設・スタッフの準備を進めます。</p>
-            </div>
-            <div class="flow__step-arrow" aria-hidden="true">→</div>
-            <div class="flow__step fade-in">
-              <div class="flow__step-num">STEP 4</div>
-              <div class="flow__step-icon">🏃</div>
-              <h3 class="flow__step-title">運営開始</h3>
-              <p class="flow__step-desc">就労施設の運営・障害者の管理をエムオー企画が担当。企業様は本業に集中できます。</p>
-            </div>
-            <div class="flow__step-arrow" aria-hidden="true">→</div>
-            <div class="flow__step fade-in">
-              <div class="flow__step-num">STEP 5</div>
-              <div class="flow__step-icon">📊</div>
-              <h3 class="flow__step-title">月次報告・改善</h3>
-              <p class="flow__step-desc">毎月の就労状況をレポートにまとめてご報告。課題があれば迅速に改善提案を行います。</p>
-            </div>
-          </div>
-        </div>
-        <div class="tab-content" id="flow-worker">
-          <div class="flow__steps">
-            <div class="flow__step fade-in">
-              <div class="flow__step-num">STEP 1</div>
-              <div class="flow__step-icon">✉️</div>
-              <h3 class="flow__step-title">エントリー</h3>
-              <p class="flow__step-desc">Webフォームまたはお電話でお気軽にご相談ください。秘密は厳守します。まずは話を聞かせてください。</p>
-            </div>
-            <div class="flow__step-arrow" aria-hidden="true">→</div>
-            <div class="flow__step fade-in">
-              <div class="flow__step-num">STEP 2</div>
-              <div class="flow__step-icon">🗣️</div>
-              <h3 class="flow__step-title">個別面談</h3>
-              <p class="flow__step-desc">あなたの障害特性・得意なこと・希望する働き方などを丁寧にヒアリングします。焦る必要はありません。</p>
-            </div>
-            <div class="flow__step-arrow" aria-hidden="true">→</div>
-            <div class="flow__step fade-in">
-              <div class="flow__step-num">STEP 3</div>
-              <div class="flow__step-icon">🔍</div>
-              <h3 class="flow__step-title">職場マッチング</h3>
-              <p class="flow__step-desc">あなたに合った企業・職場をご提案。気になる職場の見学・体験もサポートします。</p>
-            </div>
-            <div class="flow__step-arrow" aria-hidden="true">→</div>
-            <div class="flow__step fade-in">
-              <div class="flow__step-num">STEP 4</div>
-              <div class="flow__step-icon">🎉</div>
-              <h3 class="flow__step-title">就職・就労開始</h3>
-              <p class="flow__step-desc">就職が決まったら、専任スタッフが就労開始をしっかりサポート。初日から安心して働けます。</p>
-            </div>
-            <div class="flow__step-arrow" aria-hidden="true">→</div>
-            <div class="flow__step fade-in">
-              <div class="flow__step-num">STEP 5</div>
-              <div class="flow__step-icon">🤝</div>
-              <h3 class="flow__step-title">継続サポート</h3>
-              <p class="flow__step-desc">就労後も定期的な面談・相談対応を継続。長く安心して働き続けられるよう、ずっとそばにいます。</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ========== FAQ ========== -->
-  <section class="faq section" id="faq">
-    <div class="container">
-      <div class="section-header fade-in">
-        <p class="section-label">FAQ</p>
-        <h2 class="section-title">よくある質問</h2>
-        <p class="section-desc">企業様・障害をお持ちの方からよくいただく質問をまとめました。</p>
-      </div>
-      <div class="faq__list fade-in">
-
-        <div class="faq__item">
-          <button class="faq__question" aria-expanded="false">
-            <span class="faq__tag faq__tag--company">企業</span>
-            <span class="faq__question-text">委託費用はどのくらいかかりますか？</span>
-            <span class="faq__icon" aria-hidden="true">+</span>
-          </button>
-          <div class="faq__answer" role="region">
-            <div class="faq__answer-inner">
-              <p>費用はご依頼内容・規模によって異なります。まずはお気軽にお問い合わせください。現状をヒアリングしたうえで、お見積もりをご提案いたします。初回相談は無料です。</p>
-            </div>
-          </div>
-        </div>
-
-        <div class="faq__item">
-          <button class="faq__question" aria-expanded="false">
-            <span class="faq__tag faq__tag--company">企業</span>
-            <span class="faq__question-text">どのような業種・業務に対応していますか？</span>
-            <span class="faq__icon" aria-hidden="true">+</span>
-          </button>
-          <div class="faq__answer" role="region">
-            <div class="faq__answer-inner">
-              <p>製造・梱包・データ入力・清掃・農業など、幅広い業種に対応しています。障害特性と業務内容のマッチングを丁寧に行うため、まずはどのような業務があるかをお聞かせください。</p>
-            </div>
-          </div>
-        </div>
-
-        <div class="faq__item">
-          <button class="faq__question" aria-expanded="false">
-            <span class="faq__tag faq__tag--company">企業</span>
-            <span class="faq__question-text">法定雇用率の達成サポートはしてもらえますか？</span>
-            <span class="faq__icon" aria-hidden="true">+</span>
-          </button>
-          <div class="faq__answer" role="region">
-            <div class="faq__answer-inner">
-              <p>はい、法定雇用率の達成・維持を継続的にサポートします。行政への各種届出・報告書類の作成支援も行いますので、ご安心ください。</p>
-            </div>
-          </div>
-        </div>
-
-        <div class="faq__item">
-          <button class="faq__question" aria-expanded="false">
-            <span class="faq__tag faq__tag--worker">求職者</span>
-            <span class="faq__question-text">どんな障害をお持ちの方が対象ですか？</span>
-            <span class="faq__icon" aria-hidden="true">+</span>
-          </button>
-          <div class="faq__answer" role="region">
-            <div class="faq__answer-inner">
-              <p>身体障害・精神障害・知的障害・発達障害など、幅広い障害をお持ちの方を対象としています。障害者手帳をお持ちの方はもちろん、診断書をお持ちの方もまずはご相談ください。</p>
-            </div>
-          </div>
-        </div>
-
-        <div class="faq__item">
-          <button class="faq__question" aria-expanded="false">
-            <span class="faq__tag faq__tag--worker">求職者</span>
-            <span class="faq__question-text">働いたことがなくても大丈夫ですか？</span>
-            <span class="faq__icon" aria-hidden="true">+</span>
-          </button>
-          <div class="faq__answer" role="region">
-            <div class="faq__answer-inner">
-              <p>はい、まったく問題ありません。就労経験がない方、ブランクがある方も大歓迎です。一人ひとりのペースに合わせてステップアップできる環境をご用意しています。</p>
-            </div>
-          </div>
-        </div>
-
-        <div class="faq__item">
-          <button class="faq__question" aria-expanded="false">
-            <span class="faq__tag faq__tag--worker">求職者</span>
-            <span class="faq__question-text">相談するだけでもいいですか？</span>
-            <span class="faq__icon" aria-hidden="true">+</span>
-          </button>
-          <div class="faq__answer" role="region">
-            <div class="faq__answer-inner">
-              <p>もちろんです。「まだ働けるか不安」「どんな仕事が合うかわからない」といった段階でもお気軽にご連絡ください。相談だけでも大歓迎です。秘密は厳守します。</p>
-            </div>
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- ========== ENTRY FORM ========== -->
-  <section class="entry section" id="entry">
-    <div class="container">
-      <div class="section-header fade-in">
-        <p class="section-label">ENTRY</p>
-        <h2 class="section-title">まずはご相談ください</h2>
-        <p class="section-desc">お気軽にエントリーフォームよりご連絡ください。<br>担当者より2営業日以内にご連絡いたします。</p>
-      </div>
-      <div class="tab-group fade-in">
-        <div class="tab-btns">
-          <button class="tab-btn tab-btn--worker is-active" data-tab="entry-worker">🌱 障害をお持ちの方</button>
-          <button class="tab-btn tab-btn--company" data-tab="entry-company">🏢 企業様</button>
-        </div>
-
-        <div class="tab-content is-active" id="entry-worker">
-          <form class="form" action="#" method="post" novalidate>
-            <input type="hidden" name="form_type" value="worker">
-            <div class="form__row form__row--half">
-              <div class="form__group">
-                <label class="form__label" for="w-name">お名前 <span class="form__required">必須</span></label>
-                <input class="form__input" type="text" id="w-name" name="name" placeholder="山田 太郎" required>
-              </div>
-              <div class="form__group">
-                <label class="form__label" for="w-kana">ふりがな <span class="form__required">必須</span></label>
-                <input class="form__input" type="text" id="w-kana" name="kana" placeholder="やまだ たろう" required>
-              </div>
-            </div>
-            <div class="form__row form__row--half">
-              <div class="form__group">
-                <label class="form__label" for="w-email">メールアドレス <span class="form__required">必須</span></label>
-                <input class="form__input" type="email" id="w-email" name="email" placeholder="example@mail.com" required>
-              </div>
-              <div class="form__group">
-                <label class="form__label" for="w-tel">電話番号</label>
-                <input class="form__input" type="tel" id="w-tel" name="tel" placeholder="090-0000-0000">
-              </div>
-            </div>
-            <div class="form__row form__row--half">
-              <div class="form__group">
-                <label class="form__label" for="w-age">年齢</label>
-                <input class="form__input" type="number" id="w-age" name="age" placeholder="30" min="15" max="99">
-              </div>
-              <div class="form__group">
-                <label class="form__label" for="w-disability">障害の種類</label>
-                <select class="form__select" id="w-disability" name="disability">
-                  <option value="">選択してください</option>
-                  <option value="physical">身体障害</option>
-                  <option value="mental">精神障害</option>
-                  <option value="intellectual">知的障害</option>
-                  <option value="developmental">発達障害</option>
-                  <option value="other">その他・未診断</option>
-                </select>
-              </div>
-            </div>
-            <div class="form__group">
-              <label class="form__label" for="w-message">ご希望・ご相談内容</label>
-              <textarea class="form__textarea" id="w-message" name="message" placeholder="働きたい仕事の種類、希望する勤務時間、現在の状況など、何でもお気軽にお書きください。" rows="5"></textarea>
-            </div>
-            <div class="form__group">
-              <label class="form__check">
-                <input type="checkbox" name="privacy" required>
-                <span><a href="#" class="form__link">プライバシーポリシー</a>に同意する</span>
-              </label>
-            </div>
-            <div class="form__submit">
-              <button type="submit" class="btn btn--primary btn--lg">送信する →</button>
-            </div>
-          </form>
-        </div>
-
-        <div class="tab-content" id="entry-company">
-          <form class="form" action="#" method="post" novalidate>
-            <input type="hidden" name="form_type" value="company">
-            <div class="form__row form__row--half">
-              <div class="form__group">
-                <label class="form__label" for="c-company">会社名 <span class="form__required">必須</span></label>
-                <input class="form__input" type="text" id="c-company" name="company" placeholder="株式会社〇〇" required>
-              </div>
-              <div class="form__group">
-                <label class="form__label" for="c-dept">部署名</label>
-                <input class="form__input" type="text" id="c-dept" name="dept" placeholder="人事部">
-              </div>
-            </div>
-            <div class="form__row form__row--half">
-              <div class="form__group">
-                <label class="form__label" for="c-name">担当者名 <span class="form__required">必須</span></label>
-                <input class="form__input" type="text" id="c-name" name="name" placeholder="田中 花子" required>
-              </div>
-              <div class="form__group">
-                <label class="form__label" for="c-email">メールアドレス <span class="form__required">必須</span></label>
-                <input class="form__input" type="email" id="c-email" name="email" placeholder="tanaka@company.co.jp" required>
-              </div>
-            </div>
-            <div class="form__row form__row--half">
-              <div class="form__group">
-                <label class="form__label" for="c-tel">電話番号 <span class="form__required">必須</span></label>
-                <input class="form__input" type="tel" id="c-tel" name="tel" placeholder="03-0000-0000" required>
-              </div>
-              <div class="form__group">
-                <label class="form__label" for="c-size">従業員規模</label>
-                <select class="form__select" id="c-size" name="size">
-                  <option value="">選択してください</option>
-                  <option value="1-50">1〜50名</option>
-                  <option value="51-100">51〜100名</option>
-                  <option value="101-300">101〜300名</option>
-                  <option value="301-1000">301〜1000名</option>
-                  <option value="1001+">1001名以上</option>
-                </select>
-              </div>
-            </div>
-            <div class="form__group">
-              <label class="form__label" for="c-count">希望する雇用人数</label>
-              <select class="form__select" id="c-count" name="count">
-                <option value="">選択してください</option>
-                <option value="1">1名</option>
-                <option value="2-3">2〜3名</option>
-                <option value="4-5">4〜5名</option>
-                <option value="6-10">6〜10名</option>
-                <option value="11+">11名以上</option>
-              </select>
-            </div>
-            <div class="form__group">
-              <label class="form__label" for="c-message">ご要望・ご相談内容</label>
-              <textarea class="form__textarea" id="c-message" name="message" placeholder="業務内容、現在の状況、お困りのことなど、何でもお気軽にお書きください。" rows="5"></textarea>
-            </div>
-            <div class="form__group">
-              <label class="form__check">
-                <input type="checkbox" name="privacy" required>
-                <span><a href="#" class="form__link">プライバシーポリシー</a>に同意する</span>
-              </label>
-            </div>
-            <div class="form__submit">
-              <button type="submit" class="btn btn--accent btn--lg">送信する →</button>
-            </div>
-          </form>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ========== COMPANY ========== -->
-  <section class="company section" id="company">
-    <div class="container">
-      <div class="section-header fade-in">
-        <p class="section-label">COMPANY</p>
-        <h2 class="section-title">会社概要</h2>
-      </div>
-      <div class="company__table-wrap fade-in">
-        <table class="company__table">
-          <tbody>
-            <tr>
-              <th scope="row">会社名</th>
-              <td>有限会社エムオー企画</td>
-            </tr>
-            <tr>
-              <th scope="row">設立</th>
-              <td>2000年（平成12年）</td>
-            </tr>
-            <tr>
-              <th scope="row">所在地</th>
-              <td>〒000-0000 ○○県○○市○○町0-0-0</td>
-            </tr>
-            <tr>
-              <th scope="row">電話番号</th>
-              <td>000-0000-0000</td>
-            </tr>
-            <tr>
-              <th scope="row">FAX</th>
-              <td>000-0000-0000</td>
-            </tr>
-            <tr>
-              <th scope="row">メール</th>
-              <td>info@mo-kikaku.co.jp</td>
-            </tr>
-            <tr>
-              <th scope="row">代表者</th>
-              <td>代表取締役 〇〇 〇〇</td>
-            </tr>
-            <tr>
-              <th scope="row">資本金</th>
-              <td>300万円</td>
-            </tr>
-            <tr>
-              <th scope="row">事業内容</th>
-              <td>障害者就労支援事業（就労施設の運営・業務指導・日常管理の受託）</td>
-            </tr>
-            <tr>
-              <th scope="row">対応エリア</th>
-              <td>○○県・○○県・○○県（詳細はお問い合わせください）</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
-  </section>
-
-  <!-- ========== CONTACT ========== -->
-  <section class="contact section" id="contact">
-    <div class="container">
-      <div class="contact__inner fade-in">
-        <div class="contact__text">
-          <p class="section-label">CONTACT</p>
-          <h2 class="contact__title">お問い合わせ</h2>
-          <p class="contact__desc">ご質問・ご相談はお気軽にどうぞ。<br>専門スタッフが丁寧にお答えします。</p>
-          <div class="contact__info">
-            <div class="contact__info-item">
-              <span class="contact__info-icon">📞</span>
-              <div>
-                <p class="contact__info-label">お電話でのお問い合わせ</p>
-                <p class="contact__info-value">000-0000-0000</p>
-                <p class="contact__info-note">受付時間：平日 9:00〜17:00</p>
-              </div>
-            </div>
-            <div class="contact__info-item">
-              <span class="contact__info-icon">✉️</span>
-              <div>
-                <p class="contact__info-label">メールでのお問い合わせ</p>
-                <p class="contact__info-value">info@mo-kikaku.co.jp</p>
-                <p class="contact__info-note">24時間受付・2営業日以内に返信</p>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="contact__form-wrap">
-          <form class="form" action="#" method="post" novalidate>
-            <div class="form__group">
-              <label class="form__label" for="ct-name">お名前 <span class="form__required">必須</span></label>
-              <input class="form__input" type="text" id="ct-name" name="name" placeholder="山田 太郎" required>
-            </div>
-            <div class="form__group">
-              <label class="form__label" for="ct-email">メールアドレス <span class="form__required">必須</span></label>
-              <input class="form__input" type="email" id="ct-email" name="email" placeholder="example@mail.com" required>
-            </div>
-            <div class="form__group">
-              <label class="form__label" for="ct-subject">件名</label>
-              <input class="form__input" type="text" id="ct-subject" name="subject" placeholder="お問い合わせの件名">
-            </div>
-            <div class="form__group">
-              <label class="form__label" for="ct-message">お問い合わせ内容 <span class="form__required">必須</span></label>
-              <textarea class="form__textarea" id="ct-message" name="message" placeholder="お問い合わせ内容をご記入ください。" rows="4" required></textarea>
-            </div>
-            <div class="form__group">
-              <label class="form__check">
-                <input type="checkbox" name="privacy" required>
-                <span><a href="#" class="form__link">プライバシーポリシー</a>に同意する</span>
-              </label>
-            </div>
-            <div class="form__submit">
-              <button type="submit" class="btn btn--primary btn--lg">送信する →</button>
-            </div>
-          </form>
+        <div class="cta-banner__btns">
+          <a href="entry.html" class="btn btn--white btn--lg">エントリーはこちら →</a>
         </div>
       </div>
     </div>
@@ -662,7 +182,7 @@
     <div class="container">
       <div class="footer__inner">
         <div class="footer__brand">
-          <a href="#top" class="header__logo">
+          <a href="index.html" class="header__logo">
             <span class="header__logo-mark">MO</span>
             <span class="header__logo-text footer__logo-text">エムオー企画</span>
           </a>
@@ -670,11 +190,12 @@
         </div>
         <nav class="footer__nav" aria-label="フッターナビゲーション">
           <ul class="footer__nav-list">
-            <li><a href="#service">サービス</a></li>
-            <li><a href="#flow">ご利用の流れ</a></li>
-            <li><a href="#faq">よくある質問</a></li>
-            <li><a href="#company">会社概要</a></li>
-            <li><a href="#contact">お問い合わせ</a></li>
+            <li><a href="service-company.html">企業様向けサービス</a></li>
+            <li><a href="service-worker.html">障害をお持ちの方へ</a></li>
+            <li><a href="flow.html">ご利用の流れ</a></li>
+            <li><a href="faq.html">よくある質問</a></li>
+            <li><a href="company.html">会社概要</a></li>
+            <li><a href="entry.html">エントリー</a></li>
           </ul>
         </nav>
       </div>
@@ -684,7 +205,6 @@
     </div>
   </footer>
 
-  <!-- Back to top -->
   <a href="#top" class="back-to-top" id="backToTop" aria-label="ページトップへ">↑</a>
 
   <script src="js/main.js"></script>

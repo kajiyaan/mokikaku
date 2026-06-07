@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="有限会社エムオー企画 エントリー。企業様・障害をお持ちの方、どちらもお気軽にご相談ください。">
+  <title>エントリー | 有限会社エムオー企画</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <header class="header" id="header">
+    <div class="header__inner container">
+      <a href="index.html" class="header__logo">
+        <span class="header__logo-mark">MO</span>
+        <span class="header__logo-text">エムオー企画</span>
+      </a>
+      <nav class="header__nav" id="headerNav">
+        <ul class="header__nav-list">
+          <li><a href="index.html" class="header__nav-link">トップ</a></li>
+          <li><a href="service-company.html" class="header__nav-link">企業様向けサービス</a></li>
+          <li><a href="service-worker.html" class="header__nav-link">障害をお持ちの方へ</a></li>
+          <li><a href="flow.html" class="header__nav-link">ご利用の流れ</a></li>
+          <li><a href="faq.html" class="header__nav-link">よくある質問</a></li>
+          <li><a href="company.html" class="header__nav-link">会社概要</a></li>
+        </ul>
+        <a href="entry.html" class="btn btn--primary header__cta is-current">エントリー</a>
+      </nav>
+      <button class="header__hamburger" id="hamburger" aria-label="メニューを開く" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- PAGE HERO -->
+  <section class="page-hero page-hero--entry">
+    <div class="page-hero__inner container">
+      <p class="page-hero__label">ENTRY</p>
+      <h1 class="page-hero__title">まずはご相談ください</h1>
+      <p class="page-hero__desc">お気軽にエントリーフォームよりご連絡ください。<br>担当者より2営業日以内にご連絡いたします。</p>
+    </div>
+  </section>
+
+  <!-- ENTRY FORM -->
+  <section class="entry section" id="entry">
+    <div class="container">
+      <div class="tab-group fade-in">
+        <div class="tab-btns">
+          <button class="tab-btn tab-btn--worker is-active" data-tab="entry-worker">🌱 障害をお持ちの方</button>
+          <button class="tab-btn tab-btn--company" data-tab="entry-company">🏢 企業様</button>
+        </div>
+
+        <div class="tab-content is-active" id="entry-worker">
+          <div class="entry__intro">
+            <h2 class="entry__intro-title">障害をお持ちの方のエントリー</h2>
+            <p class="entry__intro-desc">就職のご相談、働き方のご希望など、どんなことでもお気軽にご記入ください。担当スタッフが丁寧に対応します。</p>
+          </div>
+          <form class="form" action="#" method="post" novalidate>
+            <input type="hidden" name="form_type" value="worker">
+            <div class="form__row form__row--half">
+              <div class="form__group">
+                <label class="form__label" for="w-name">お名前 <span class="form__required">必須</span></label>
+                <input class="form__input" type="text" id="w-name" name="name" placeholder="山田 太郎" required>
+              </div>
+              <div class="form__group">
+                <label class="form__label" for="w-kana">ふりがな <span class="form__required">必須</span></label>
+                <input class="form__input" type="text" id="w-kana" name="kana" placeholder="やまだ たろう" required>
+              </div>
+            </div>
+            <div class="form__row form__row--half">
+              <div class="form__group">
+                <label class="form__label" for="w-email">メールアドレス <span class="form__required">必須</span></label>
+                <input class="form__input" type="email" id="w-email" name="email" placeholder="example@mail.com" required>
+              </div>
+              <div class="form__group">
+                <label class="form__label" for="w-tel">電話番号</label>
+                <input class="form__input" type="tel" id="w-tel" name="tel" placeholder="090-0000-0000">
+              </div>
+            </div>
+            <div class="form__row form__row--half">
+              <div class="form__group">
+                <label class="form__label" for="w-age">年齢</label>
+                <input class="form__input" type="number" id="w-age" name="age" placeholder="30" min="15" max="99">
+              </div>
+              <div class="form__group">
+                <label class="form__label" for="w-disability">障害の種類</label>
+                <select class="form__select" id="w-disability" name="disability">
+                  <option value="">選択してください</option>
+                  <option value="physical">身体障害</option>
+                  <option value="mental">精神障害</option>
+                  <option value="intellectual">知的障害</option>
+                  <option value="developmental">発達障害</option>
+                  <option value="other">その他・未診断</option>
+                </select>
+              </div>
+            </div>
+            <div class="form__group">
+              <label class="form__label" for="w-message">ご希望・ご相談内容</label>
+              <textarea class="form__textarea" id="w-message" name="message" placeholder="働きたい仕事の種類、希望する勤務時間、現在の状況など、何でもお気軽にお書きください。" rows="5"></textarea>
+            </div>
+            <div class="form__group">
+              <label class="form__check">
+                <input type="checkbox" name="privacy" required>
+                <span><a href="#" class="form__link">プライバシーポリシー</a>に同意する</span>
+              </label>
+            </div>
+            <div class="form__submit">
+              <button type="submit" class="btn btn--primary btn--lg">送信する →</button>
+            </div>
+          </form>
+        </div>
+
+        <div class="tab-content" id="entry-company">
+          <div class="entry__intro">
+            <h2 class="entry__intro-title">企業様のエントリー</h2>
+            <p class="entry__intro-desc">障害者雇用のご検討・ご相談など、まずはお気軽にご連絡ください。担当者より折り返しご連絡いたします。</p>
+          </div>
+          <form class="form" action="#" method="post" novalidate>
+            <input type="hidden" name="form_type" value="company">
+            <div class="form__row form__row--half">
+              <div class="form__group">
+                <label class="form__label" for="c-company">会社名 <span class="form__required">必須</span></label>
+                <input class="form__input" type="text" id="c-company" name="company" placeholder="株式会社〇〇" required>
+              </div>
+              <div class="form__group">
+                <label class="form__label" for="c-dept">部署名</label>
+                <input class="form__input" type="text" id="c-dept" name="dept" placeholder="人事部">
+              </div>
+            </div>
+            <div class="form__row form__row--half">
+              <div class="form__group">
+                <label class="form__label" for="c-name">担当者名 <span class="form__required">必須</span></label>
+                <input class="form__input" type="text" id="c-name" name="name" placeholder="田中 花子" required>
+              </div>
+              <div class="form__group">
+                <label class="form__label" for="c-email">メールアドレス <span class="form__required">必須</span></label>
+                <input class="form__input" type="email" id="c-email" name="email" placeholder="tanaka@company.co.jp" required>
+              </div>
+            </div>
+            <div class="form__row form__row--half">
+              <div class="form__group">
+                <label class="form__label" for="c-tel">電話番号 <span class="form__required">必須</span></label>
+                <input class="form__input" type="tel" id="c-tel" name="tel" placeholder="03-0000-0000" required>
+              </div>
+              <div class="form__group">
+                <label class="form__label" for="c-size">従業員規模</label>
+                <select class="form__select" id="c-size" name="size">
+                  <option value="">選択してください</option>
+                  <option value="1-50">1〜50名</option>
+                  <option value="51-100">51〜100名</option>
+                  <option value="101-300">101〜300名</option>
+                  <option value="301-1000">301〜1000名</option>
+                  <option value="1001+">1001名以上</option>
+                </select>
+              </div>
+            </div>
+            <div class="form__group">
+              <label class="form__label" for="c-count">希望する雇用人数</label>
+              <select class="form__select" id="c-count" name="count">
+                <option value="">選択してください</option>
+                <option value="1">1名</option>
+                <option value="2-3">2〜3名</option>
+                <option value="4-5">4〜5名</option>
+                <option value="6-10">6〜10名</option>
+                <option value="11+">11名以上</option>
+              </select>
+            </div>
+            <div class="form__group">
+              <label class="form__label" for="c-message">ご要望・ご相談内容</label>
+              <textarea class="form__textarea" id="c-message" name="message" placeholder="業務内容、現在の状況、お困りのことなど、何でもお気軽にお書きください。" rows="5"></textarea>
+            </div>
+            <div class="form__group">
+              <label class="form__check">
+                <input type="checkbox" name="privacy" required>
+                <span><a href="#" class="form__link">プライバシーポリシー</a>に同意する</span>
+              </label>
+            </div>
+            <div class="form__submit">
+              <button type="submit" class="btn btn--accent btn--lg">送信する →</button>
+            </div>
+          </form>
+        </div>
+      </div>
+
+      <!-- CONTACT INFO -->
+      <div class="entry__contact fade-in">
+        <h3 class="entry__contact-title">お電話でのお問い合わせ</h3>
+        <div class="entry__contact-info">
+          <span class="entry__contact-icon">📞</span>
+          <div>
+            <p class="entry__contact-tel">000-0000-0000</p>
+            <p class="entry__contact-note">受付時間：平日 9:00〜17:00</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__inner">
+        <div class="footer__brand">
+          <a href="index.html" class="header__logo">
+            <span class="header__logo-mark">MO</span>
+            <span class="header__logo-text footer__logo-text">エムオー企画</span>
+          </a>
+          <p class="footer__tagline">企業と障害者、どちらも幸せに。</p>
+        </div>
+        <nav class="footer__nav" aria-label="フッターナビゲーション">
+          <ul class="footer__nav-list">
+            <li><a href="service-company.html">企業様向けサービス</a></li>
+            <li><a href="service-worker.html">障害をお持ちの方へ</a></li>
+            <li><a href="flow.html">ご利用の流れ</a></li>
+            <li><a href="faq.html">よくある質問</a></li>
+            <li><a href="company.html">会社概要</a></li>
+            <li><a href="entry.html">エントリー</a></li>
+          </ul>
+        </nav>
+      </div>
+      <div class="footer__bottom">
+        <p class="footer__copy">&copy; 2025 有限会社エムオー企画 All Rights Reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <a href="#top" class="back-to-top" id="backToTop" aria-label="ページトップへ">↑</a>
+  <script src="js/main.js"></script>
+</body>
+</html>

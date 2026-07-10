@@ -1,6 +1,6 @@
 name: Deploy to Sakura Internet
 
-# main ブランチに push されたら自動でさくらのレンタルサーバへ同期します。
+# main ブランチに push されたら自動でさくらのレンタルサーバへ FTPS 同期します。
 # 手動実行（Actions タブの Run workflow）も可能です。
 on:
   push:
@@ -15,19 +15,18 @@ jobs:
       - name: リポジトリを取得
         uses: actions/checkout@v4
 
-      - name: SSH 秘密鍵を設定
-        run: |
-          mkdir -p ~/.ssh
-          echo "${{ secrets.SAKURA_SSH_KEY }}" > ~/.ssh/id_ed25519
-          chmod 600 ~/.ssh/id_ed25519
-          ssh-keyscan -p "${{ secrets.SAKURA_PORT }}" "${{ secrets.SAKURA_HOST }}" >> ~/.ssh/known_hosts
-
-      - name: rsync でさくらへ同期
-        run: |
-          rsync -avz --delete \
-            --exclude='.git/' \
-            --exclude='.github/' \
-            --exclude='README.md' \
-            -e "ssh -p ${{ secrets.SAKURA_PORT }} -i ~/.ssh/id_ed25519" \
-            ./ \
-            "${{ secrets.SAKURA_USER }}@${{ secrets.SAKURA_HOST }}:${{ secrets.SAKURA_PATH }}"
+      - name: FTPS でさくらへ同期
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+        with:
+          server: ${{ secrets.SAKURA_FTP_SERVER }}
+          username: ${{ secrets.SAKURA_FTP_USER }}
+          password: ${{ secrets.SAKURA_FTP_PASSWORD }}
+          protocol: ftps
+          # さくらの公開フォルダ（~/www/mokikaku/）へアップロード
+          server-dir: /www/mokikaku/
+          # アップロード対象から除外するもの
+          exclude: |
+            **/.git*
+            **/.git*/**
+            **/.github/**
+            README.md

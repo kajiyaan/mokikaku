@@ -1,6 +1,6 @@
 name: Deploy to Sakura Internet
 
-# main ブランチに push されたら自動でさくらのレンタルサーバへ SFTP 同期します。
+# main ブランチに push されたら自動でさくらのレンタルサーバへ FTP 同期します。
 # 手動実行（Actions タブの Run workflow）も可能です。
 on:
   push:
@@ -15,17 +15,19 @@ jobs:
       - name: リポジトリを取得
         uses: actions/checkout@v4
 
-      - name: SFTP でさくらへ同期
-        uses: wlixcc/SFTP-Deploy-Action@v1.2.5
+      - name: FTP でさくらへ同期
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
         with:
           server: ${{ secrets.SAKURA_FTP_SERVER }}
           username: ${{ secrets.SAKURA_FTP_USER }}
           password: ${{ secrets.SAKURA_FTP_PASSWORD }}
-          port: 22
-          local_path: './*'
-          remote_path: '/home/kzshop/www/mokikaku/'
-          sftp_only: true
-          exclude_list: |
-            .git
-            .github
+          protocol: ftp
+          port: 21
+          # さくらの公開フォルダ（~/www/mokikaku/）へアップロード
+          server-dir: /www/mokikaku/
+          exclude: |
+            **/.git*
+            **/.git*/**
+            **/.github/**
             README.md
+            DEPLOY_SETUP.md

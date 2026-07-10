@@ -4,6 +4,23 @@
 
 ---
 
+## 🖥️ 別のマシンで続きを始める方法
+
+1. GitHubからリポジトリをクローン（別マシンで）
+   ```bash
+   git clone https://github.com/kajiyaan/mokikaku.git
+   cd mokikaku
+   ```
+2. ブランチ構成
+   - `main` … 公開用（GitHub Pages / さくらデプロイの対象）
+   - `claude/dazzling-edison-1FwJ1` … 開発用ブランチ（最新の作業はこちら）
+   - 開発を続ける場合：`git checkout claude/dazzling-edison-1FwJ1`
+3. このファイル（`DEPLOY_SETUP.md`）を開けば、下記の「残作業」から再開できる。
+4. GitHub Secrets はGitHub上に保存されているので、別マシンでも設定不要（そのまま有効）。
+5. Claude Code で続ける場合は「さくらデプロイの続きをやりたい。DEPLOY_SETUP.md を見て」と伝えればOK。
+
+---
+
 ## ゴール
 `main` ブランチに push すると、GitHub Actions が自動でさくらのレンタルサーバへサイトを同期し、`https://mokikaku.jp/` で公開される状態にする。
 

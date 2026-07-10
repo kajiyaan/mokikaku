@@ -1,8 +1,8 @@
 name: Deploy to Sakura Internet
 
-# main ブランチに push されたら自動でさくらのレンタルサーバへ SFTP 同期します。
+# main ブランチに push されたら自動でさくらのレンタルサーバへ FTPS 同期します。
 # 手動実行（Actions タブの Run workflow）も可能です。
-# SFTP は SSH(22番) 上の1本の接続で完結するため、FTPのパッシブモード問題が起きない。
+# 転送には lftp を使用。制御・データともTLS(FTPS)で暗号化し、パッシブモードで接続。
 on:
   push:
     branches:
@@ -19,17 +19,23 @@ jobs:
       - name: lftp をインストール
         run: sudo apt-get update && sudo apt-get install -y lftp
 
-      - name: SFTP でさくらへ同期
+      - name: FTPS でさくらへ同期
         env:
           SERVER: ${{ secrets.SAKURA_FTP_SERVER }}
           USER_NAME: ${{ secrets.SAKURA_FTP_USER }}
           PASSWORD: ${{ secrets.SAKURA_FTP_PASSWORD }}
         run: |
           lftp -c "
-            set sftp:auto-confirm yes;
+            set ftp:ssl-force true;
+            set ftp:ssl-protect-data true;
+            set ssl:verify-certificate no;
+            set ftp:passive-mode on;
+            set ftp:prefer-epsv no;
+            set ftp:fix-pasv-address yes;
             set net:max-retries 2;
             set net:timeout 20;
-            open -u '$USER_NAME','$PASSWORD' 'sftp://$SERVER:22';
+            set net:connection-limit 1;
+            open -u '$USER_NAME','$PASSWORD' 'ftp://$SERVER';
             mirror --reverse --delete --verbose \
               --exclude .git/ \
               --exclude .github/ \

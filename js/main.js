@@ -189,15 +189,46 @@ const qsa = (sel, ctx = document) => [...ctx.querySelectorAll(sel)];
         return;
       }
 
-      // Show success message (replace form content)
-      const successHtml = `
-        <div style="text-align:center;padding:3rem 1rem;">
-          <div style="font-size:3rem;margin-bottom:1rem;">✅</div>
-          <h3 style="font-size:1.3rem;font-weight:800;margin-bottom:.75rem;color:var(--text);">送信が完了しました</h3>
-          <p style="color:var(--text-mid);line-height:1.8;">お問い合わせありがとうございます。<br>担当者より2営業日以内にご連絡いたします。</p>
-        </div>
-      `;
-      form.innerHTML = successHtml;
+      const submitBtn = qs('button[type="submit"]', form);
+      const originalBtnText = submitBtn ? submitBtn.textContent : '';
+      if (submitBtn) {
+        submitBtn.disabled = true;
+        submitBtn.textContent = '送信中…';
+      }
+
+      fetch(form.action, {
+        method: form.method || 'POST',
+        body: new FormData(form)
+      })
+        .then(res => {
+          if (!res.ok) throw new Error('send-failed');
+
+          // Show success message (replace form content)
+          const successHtml = `
+            <div style="text-align:center;padding:3rem 1rem;">
+              <div style="font-size:3rem;margin-bottom:1rem;">✅</div>
+              <h3 style="font-size:1.3rem;font-weight:800;margin-bottom:.75rem;color:var(--text);">送信が完了しました</h3>
+              <p style="color:var(--text-mid);line-height:1.8;">お問い合わせありがとうございます。<br>担当者よりご連絡いたします。</p>
+            </div>
+          `;
+          form.innerHTML = successHtml;
+        })
+        .catch(() => {
+          if (submitBtn) {
+            submitBtn.disabled = false;
+            submitBtn.textContent = originalBtnText;
+          }
+
+          let errorEl = qs('.form__error', form);
+          if (!errorEl) {
+            errorEl = document.createElement('p');
+            errorEl.className = 'form__error';
+            errorEl.style.color = '#e74c3c';
+            errorEl.style.marginTop = '1rem';
+            form.appendChild(errorEl);
+          }
+          errorEl.textContent = '送信に失敗しました。時間をおいて再度お試しいただくか、お電話にてご連絡ください。';
+        });
     });
   });
 })();

@@ -134,7 +134,7 @@ if ($formType === 'worker') {
     $lines[] = '';
     $lines[] = 'ご希望・ご相談内容:';
     $lines[] = post('message');
-} else {
+} elseif ($formType === 'company') {
     $company = post('company');
     $name = post('name');
     $tel = post('tel');

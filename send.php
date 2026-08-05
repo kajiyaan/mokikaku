@@ -72,7 +72,7 @@ if (post('website') !== '') {
 }
 
 $formType = post('form_type');
-if (!in_array($formType, ['worker', 'company'], true)) {
+if (!in_array($formType, ['worker', 'company', 'contact'], true)) {
     http_response_code(400);
     render_result_page(false, 'フォーム種別が不正です。');
     exit;
@@ -159,6 +159,28 @@ if ($formType === 'worker') {
     $lines[] = '';
     $lines[] = 'ご要望・ご相談内容:';
     $lines[] = post('message');
+} else {
+    // contact: company.html general inquiry form
+    $name = post('name');
+    $message = post('message');
+    $privacy = post('privacy');
+    if ($name === '' || $message === '' || $privacy === '') {
+        http_response_code(400);
+        render_result_page(false, '必須項目が入力されていません。');
+        exit;
+    }
+
+    $subjectInput = post('subject');
+    $subjectSource = clean_header_value($subjectInput !== '' ? $subjectInput : $name);
+    $subject = "【歩香ラボ／エムオー企画】お問い合わせ：{$subjectSource}";
+
+    $lines[] = 'フォーム種別: お問い合わせ（会社概要ページ）';
+    $lines[] = 'お名前: ' . $name;
+    $lines[] = 'メールアドレス: ' . $email;
+    $lines[] = '件名: ' . ($subjectInput !== '' ? $subjectInput : '(未入力)');
+    $lines[] = '';
+    $lines[] = 'お問い合わせ内容:';
+    $lines[] = $message;
 }
 
 $lines[] = '';

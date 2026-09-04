@@ -1501,6 +1501,33 @@ button { cursor: pointer; font: inherit; border: none; background: none; }
   font-weight: 700;
   color: var(--text-light);
 }
+.family-voice__card--excerpt .family-voice__author {
+  margin-top: 1.5rem;
+  padding-top: 1rem;
+}
+.family-voice__more {
+  display: inline-block;
+  margin-top: 1.25rem;
+  font-size: .95rem;
+  font-weight: 700;
+  color: var(--primary-dark);
+  text-decoration: none;
+  border-bottom: 2px solid var(--primary-light);
+  padding-bottom: .15rem;
+  transition: var(--transition);
+}
+.family-voice__more:hover {
+  color: var(--primary);
+  border-bottom-color: var(--primary);
+}
+.family-voice__note {
+  max-width: 820px;
+  margin: 1.5rem auto 0;
+  font-size: .82rem;
+  line-height: 1.8;
+  color: var(--text-light);
+  text-align: center;
+}
 
 /* ==========================================================================
    Legal content (Privacy Policy, etc.)

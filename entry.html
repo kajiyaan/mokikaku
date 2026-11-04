@@ -62,14 +62,15 @@
             <h3 class="promise__title">エントリーについてのお約束</h3>
             <p class="promise__lead">エントリーの前に、かならずお読みください。</p>
             <ol class="promise__list">
-              <li>エントリーは「相談のはじまり」です。エントリーしても、働くことが決まるわけではありません。</li>
+              <li>エントリーは、エムオー企画への「登録」です。登録しても、すぐに働けるわけではありません。</li>
+              <li>登録のあと、あなたに合う会社とのマッチングを行います。会社が採用を行っていない時期は、ご案内までにお時間がかかることがあります。</li>
               <li>エムオー企画は、あなたと会社をつなぐ役割です。採用は、会社の選考によって決まります。</li>
-              <li>受け入れる人数には限りがあります。ご希望に添えないことや、すぐにはご案内できないことがあります。</li>
+              <li>受け入れる人数には限りがあります。ご希望に添えないことがあります。</li>
               <li>選考は雇用する会社が行うため、結果の理由についてはお答えできないことがあります。</li>
               <li>ご連絡は、原則としてメールで、平日9:00〜17:00に行います。</li>
             </ol>
           </div>
-          <form class="form" action="send.php" method="post" novalidate data-success="エントリーありがとうございました。<br>ご入力のメールアドレスに、受付確認メールをお送りしました。<br>内容を確認のうえ、担当者よりメールでご連絡いたします（平日9:00〜17:00）。<br>ご案内までにお時間をいただく場合があります。">
+          <form class="form" action="send.php" method="post" novalidate data-success="ご登録ありがとうございました。<br>ご入力のメールアドレスに、受付確認メールをお送りしました。<br>内容を確認のうえ、担当者よりメールでご連絡いたします（平日9:00〜17:00）。<br>会社とのマッチングには、お時間がかかることがあります。">
             <input type="hidden" name="form_type" value="worker">
             <div style="position:absolute;left:-9999px;top:-9999px;" aria-hidden="true">
               <label for="w-website">Webサイト</label>
@@ -112,20 +113,6 @@
                 </select>
               </div>
             </div>
-            <fieldset class="form__group form__fieldset">
-              <legend class="form__label">ご希望の進め方 <span class="form__required">必須</span></legend>
-              <div class="form__choices">
-                <label class="form__choice">
-                  <input type="radio" name="plan" value="consult" checked>
-                  <span><strong>相談したい</strong><small>面談で、働き方について一緒に考えます</small></span>
-                </label>
-                <label class="form__choice">
-                  <input type="radio" name="plan" value="register">
-                  <span><strong>登録だけしておきたい</strong><small>採用を希望する会社が見つかったときに、ご案内します</small></span>
-                </label>
-              </div>
-              <p class="form__help">「登録だけ」の場合は、ご登録内容をお預かりし、採用を希望する会社が見つかった時点でメールでご案内します。ご案内の時期はお約束できません。登録の取り消しは、いつでも info@mokikaku.jp までご連絡ください。</p>
-            </fieldset>
             <div class="form__group">
               <label class="form__label" for="w-message">ご希望・ご相談内容</label>
               <textarea class="form__textarea" id="w-message" name="message" placeholder="働きたい仕事の種類、希望する勤務時間、現在の状況など、何でもお気軽にお書きください。" rows="5"></textarea>

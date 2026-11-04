@@ -1446,23 +1446,6 @@ button { cursor: pointer; font: inherit; border: none; background: none; }
 .promise__list { padding-left: 1.5rem; display: grid; gap: .55rem; }
 .promise__list li { line-height: 1.75; color: var(--text); font-weight: 600; }
 .promise__list li::marker { color: #c98a00; font-weight: 800; }
-.form__fieldset { border: none; padding: 0; min-width: 0; }
-.form__choices { display: grid; grid-template-columns: 1fr 1fr; gap: .75rem; }
-.form__choice {
-  display: flex;
-  align-items: flex-start;
-  gap: .75rem;
-  padding: 1rem 1.1rem;
-  border: 2px solid var(--border);
-  border-radius: var(--radius);
-  cursor: pointer;
-  transition: var(--transition);
-}
-.form__choice:has(input:checked) { border-color: var(--primary); background: var(--warm-green); }
-.form__choice input { margin-top: .3rem; accent-color: var(--primary); width: 18px; height: 18px; flex-shrink: 0; }
-.form__choice strong { display: block; font-size: .98rem; }
-.form__choice small { display: block; font-size: .82rem; color: var(--text-mid); line-height: 1.6; margin-top: .15rem; }
-.form__help { font-size: .82rem; color: var(--text-light); line-height: 1.7; margin-top: .6rem; }
 .flow__register {
   max-width: 760px;
   margin: 2.5rem auto 0;
@@ -1477,7 +1460,6 @@ button { cursor: pointer; font: inherit; border: none; background: none; }
 .flow__register-steps span { background: var(--white); border-radius: 50px; padding: .35rem .9rem; box-shadow: var(--shadow-sm); }
 .flow__register-steps i { font-style: normal; color: var(--primary); }
 @media (max-width: 700px) {
-  .form__choices { grid-template-columns: 1fr; }
   .flow__register { padding: 1.5rem 1.25rem; }
 }
 .policy__box {

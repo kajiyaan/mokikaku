@@ -1828,6 +1828,10 @@ button { cursor: pointer; font: inherit; border: none; background: none; }
 .day__desc { font-size: .9rem; color: var(--text-mid); }
 .day__note { text-align: center; margin-top: 1.5rem; color: var(--text-light); font-size: .9rem; }
 
+.photo-wide { max-width: 960px; margin: 0 auto 3.5rem; }
+.photo-wide img { width: 100%; aspect-ratio: 16/9; object-fit: cover; object-position: center 70%; border-radius: var(--radius-lg); box-shadow: var(--shadow-md); }
+.photo-wide figcaption { text-align: center; font-size: .85rem; color: var(--text-light); margin-top: .75rem; }
+
 /* Scheme diagram (athlete) */
 .scheme {
   display: grid;

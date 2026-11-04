@@ -1434,6 +1434,32 @@ button { cursor: pointer; font: inherit; border: none; background: none; }
 }
 .entry__intro-title { font-size: 1.2rem; font-weight: 700; margin-bottom: .5rem; }
 .entry__intro-desc { color: var(--text-mid); font-size: .95rem; }
+.promise {
+  background: #fffaf0;
+  border: 2px solid #f0c36d;
+  border-radius: var(--radius);
+  padding: 1.75rem 2rem;
+  margin-bottom: 1.5rem;
+}
+.promise__title { font-size: 1.15rem; font-weight: 800; color: #8a5a00; margin-bottom: .25rem; }
+.promise__lead { font-size: .9rem; color: var(--text-mid); margin-bottom: 1rem; }
+.promise__list { padding-left: 1.5rem; display: grid; gap: .55rem; }
+.promise__list li { line-height: 1.75; color: var(--text); font-weight: 600; }
+.promise__list li::marker { color: #c98a00; font-weight: 800; }
+.promise__note { margin-top: 1rem; font-size: .85rem; color: var(--text-mid); line-height: 1.8; }
+.policy__box {
+  max-width: 760px;
+  margin: 3rem auto 0;
+  background: var(--bg);
+  border-radius: var(--radius);
+  padding: 2rem;
+}
+.policy__title { font-size: 1.15rem; font-weight: 800; margin-bottom: .75rem; }
+.policy__box p { color: var(--text-mid); line-height: 1.85; font-size: .95rem; }
+.policy__list { list-style: disc; padding-left: 1.5rem; margin: .75rem 0; color: var(--text-mid); display: grid; gap: .35rem; font-size: .95rem; }
+@media (max-width: 700px) {
+  .promise, .policy__box { padding: 1.5rem 1.25rem; }
+}
 .entry__contact {
   text-align: center;
   margin-top: 3rem;

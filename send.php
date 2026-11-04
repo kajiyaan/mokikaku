@@ -30,8 +30,8 @@ function render_result_page(bool $success, string $errorMessage = ''): void
     $title = $success ? '送信が完了しました' : '送信できませんでした';
     $icon = $success ? '✅' : '⚠️';
     $message = $success
-        ? 'お問い合わせありがとうございます。<br>担当者よりご連絡いたします。'
-        : htmlspecialchars($errorMessage, ENT_QUOTES, 'UTF-8') . '<br>お手数ですが、お電話にてご連絡いただくか、時間をおいて再度お試しください。';
+        ? 'お問い合わせありがとうございます。<br>担当者よりメールでご連絡いたします（平日9:00〜17:00）。'
+        : htmlspecialchars($errorMessage, ENT_QUOTES, 'UTF-8') . '<br>お手数ですが、時間をおいて再度お試しいただくか、info@mokikaku.jp までメールでご連絡ください。';
 
     header('Content-Type: text/html; charset=UTF-8');
     echo <<<HTML
@@ -115,7 +115,8 @@ if ($formType === 'worker') {
     $name = post('name');
     $kana = post('kana');
     $privacy = post('privacy');
-    if ($name === '' || $kana === '' || $privacy === '') {
+    $promise = post('promise');
+    if ($name === '' || $kana === '' || $privacy === '' || $promise === '') {
         http_response_code(400);
         render_result_page(false, '必須項目が入力されていません。');
         exit;
@@ -125,6 +126,7 @@ if ($formType === 'worker') {
     $subject = "【歩香ラボ／エムオー企画】障がいをお持ちの方からのエントリー：{$subjectSource}";
 
     $lines[] = 'フォーム種別: 障がいをお持ちの方';
+    $lines[] = 'エントリーについてのお約束: 確認済み（チェックあり）';
     $lines[] = 'お名前: ' . $name;
     $lines[] = 'ふりがな: ' . $kana;
     $lines[] = 'メールアドレス: ' . $email;
@@ -134,6 +136,42 @@ if ($formType === 'worker') {
     $lines[] = '';
     $lines[] = 'ご希望・ご相談内容:';
     $lines[] = post('message');
+
+    $autoReply = [
+        $name . ' 様',
+        '',
+        'このたびは、有限会社エムオー企画へエントリーいただき、ありがとうございます。',
+        '以下の内容で受け付けました。',
+        '',
+        '■ エントリーについてのお約束（エントリー時にご確認いただいた内容です）',
+        '1. エントリーは「相談のはじまり」です。エントリーしても、働くことが決まるわけではありません。',
+        '2. 採用するかどうかは、雇用する会社が決めます。エムオー企画が決めることはできません。',
+        '3. 受け入れる人数には限りがあります。ご希望に添えないことがあります。',
+        '4. 選考の結果について、理由をお伝えすることはできません。',
+        '5. ご連絡は、原則としてメールで、平日9:00〜17:00に行います。',
+        '6. 結果は必ずご連絡します。',
+        '',
+        '■ ご入力いただいた内容',
+        'お名前: ' . $name,
+        'ふりがな: ' . $kana,
+        'メールアドレス: ' . $email,
+        '電話番号: ' . post('tel'),
+        '年齢: ' . post('age'),
+        '障がいの種類: ' . label($disabilityLabels, post('disability')),
+        'ご希望・ご相談内容:',
+        post('message'),
+        '',
+        '内容を確認のうえ、担当者よりメールでご連絡いたします。',
+        'ご案内までにお時間をいただく場合があります。あらかじめご了承ください。',
+        '',
+        '※ このメールは送信専用の自動返信です。お心当たりのない場合は、お手数ですが info@mokikaku.jp までお知らせください。',
+        '',
+        '――――――――――――――――――――',
+        '有限会社エムオー企画',
+        'メール: info@mokikaku.jp（ご連絡は平日9:00〜17:00）',
+        'https://mokikaku.jp/',
+        '――――――――――――――――――――',
+    ];
 } elseif ($formType === 'company') {
     $company = post('company');
     $name = post('name');
@@ -204,6 +242,22 @@ if (!$sent) {
     http_response_code(500);
     render_result_page(false, '送信に失敗しました。');
     exit;
+}
+
+// Auto-reply to the applicant (worker entries only). Failure here does not
+// affect the result shown, since the entry itself has already been delivered.
+if (isset($autoReply)) {
+    $replyHeaders = [
+        'From: ' . mb_encode_mimeheader('有限会社エムオー企画') . ' <' . FROM_ADDRESS . '>',
+        'Content-Type: text/plain; charset=UTF-8',
+    ];
+    mail(
+        clean_header_value($email),
+        mb_encode_mimeheader('【エムオー企画】エントリーを受け付けました', 'UTF-8'),
+        implode("\n", $autoReply),
+        implode("\r\n", $replyHeaders),
+        '-f' . FROM_ADDRESS
+    );
 }
 
 render_result_page(true);

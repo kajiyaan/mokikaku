@@ -60,6 +60,7 @@ mokikaku/
 ├── entry.html            … エントリーフォーム（企業/障がい者タブ切替）
 ├── company.html          … 会社概要＋お問い合わせ
 ├── privacy.html          … プライバシーポリシー
+├── favicon.svg / favicon.ico / apple-touch-icon.png … ブラウザタブ・ホーム画面用アイコン（ロゴの「MO」マーク）
 ├── send.php              … フォーム送信処理（info@mokikaku.jp 宛にメール通知）
 ├── images/
 │   ├── support-worker.jpg … 就労サポートの様子（4:3 / 1200x900）
